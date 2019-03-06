@@ -1,0 +1,15 @@
+version: '3.5'
+services:
+  build:
+    image: golang
+    environment:
+      - GOOS=linux
+      - GOARCH=amd64
+      - CGO_ENABLED=0
+      - GO111MODULE=on
+      - GOPATH=
+    volumes:
+      - .:/go
+  test:
+    build: .
+    image: drone_pipeline_wait
