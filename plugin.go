@@ -59,7 +59,7 @@ func (p Plugin) Exec() error {
 						if v == element.Name {
 							fmt.Println(element.Name, element.Status)
 							elementCnt++
-							if element.Status != drone.StatusWaiting || element.Status != drone.StatusPending || element.Status != drone.StatusRunning {
+							if element.Status != drone.StatusWaiting && element.Status != drone.StatusPending && element.Status != drone.StatusRunning {
 								if element.Status != drone.StatusPassing {
 									os.Exit(1)
 								} else {
